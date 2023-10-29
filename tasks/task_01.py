@@ -1,5 +1,6 @@
 from datetime import datetime
 from collections import defaultdict
+import calendar
 
 birthday_dict = defaultdict(list)
 weekdays = [
@@ -14,6 +15,7 @@ weekdays = [
 
 
 def get_birthdays_per_week(users):
+    weekdays = list(calendar.day_name)
     current_date = datetime.today().date()
 
     for user in users:
@@ -40,11 +42,10 @@ users = [
     {"name": "Bill Gates", "birthday": datetime(1955, 10, 12)},
     {"name": "Jan Koum", "birthday": datetime(1965, 10, 17)},
     {"name": "Jill Valentine", "birthday": datetime(1975, 10, 10)},
-    {"name": "Kim Kardashian", "birthday": datetime(1985, 10, 5)},
+    {"name": "Kim Kardashian", "birthday": datetime(1985, 10, 30)},
     {"name": "Dua Lipa", "birthday": datetime(1985, 10, 14)},
     {"name": "John Dou", "birthday": datetime(1985, 10, 14)},
 ]
 
 if __name__ == "__main__":
-    res = get_birthdays_per_week(users)
-    print("res: ", res)
+    get_birthdays_per_week(users)
